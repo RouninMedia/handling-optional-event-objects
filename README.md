@@ -45,6 +45,7 @@ This example works whether the function's parameters comprise of:
 
       let start = (eventObject.constructor.name.length - 5);
       let end = eventObject.constructor.name.length;
+      
       eventActionData = (eventObject.constructor.name.substring(start, end) === 'Event') ? eventActionData : eventObject;
   
       let stringToLog = (eventObject.constructor.name === 'Object') ? eventActionData.stringToLog : stringToLog;
