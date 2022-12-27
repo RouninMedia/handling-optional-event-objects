@@ -1,5 +1,5 @@
 # Handling Optional Event Objects
-... because it's helpful to be able to re-use the same function both inside and outside of `EventListeners`.
+...because it's helpful to be able to re-use the same function both inside and outside of `EventListeners`.
 
 _____
 
@@ -13,7 +13,11 @@ There doesn't seem to be a standard way of identifying whether the first paramet
 
 However. There are several approaches to successfully identifying whether the first parameter ***is*** an `Event` object or not.
 
-One approach is to query that parameter's `constructor.name` - which, in all cases, will end in `Event`.
+_____
+
+## Approach #1
+
+The first approach is to query that parameter's `constructor.name` - which, in all cases, will end in `Event`.
 
 **E.g.**
 
@@ -22,3 +26,24 @@ Where the first parameter of a function is `e` or `eventObject`:
     let start = (eventObject.constructor.name.length - 5);
     let end = eventObject.constructor.name.length;
     const functionHasEventObject = (eventObject.constructor.name.substring(start, end) === 'Event') ? true : false
+    
+### Full Example:
+
+#### HTML
+
+    <header class="header" data-danis3h-events="{«mouseout:testFunction»: {«data»: {«stringToLog»: «Fantastic! This is actually working!»}}}">
+
+#### JavaScript
+
+    const testFunction = (eventObject, eventActionData) => {
+
+      let start = (eventObject.constructor.name.length - 5);
+      let end = eventObject.constructor.name.length;
+      eventActionData = (eventObject.constructor.name.substring(start, end) === 'Event') ? eventActionData : eventObject;
+  
+      let stringToLog = (eventObject.constructor.name === 'Object') ? eventActionData.stringToLog : stringToLog;
+      console.log(stringToLog);
+    }
+
+    testFunction({stringToLog: 'Pleasingly, this is working too.'});
+    testFunction('And this. This works too.');
