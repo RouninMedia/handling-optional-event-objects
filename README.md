@@ -29,6 +29,12 @@ Where the first parameter of a function is `e` or `eventObject`:
     
 ### Full Example:
 
+This example works whether the function's parameters comprise of:
+
+  1. Two parameters: an `Event` object and then an `Object`
+  2. One parameter: an `Object`
+  3. One paramter: a `String` 
+
 #### HTML
 
     <header class="header" data-danis3h-events="{«mouseout:testFunction»: {«data»: {«stringToLog»: «Fantastic! This is actually working!»}}}">
