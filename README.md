@@ -53,5 +53,5 @@ This example works whether the function's parameters comprise of:
       console.log(stringToLog);
     }
 
-    testFunction({stringToLog: 'Pleasingly, this object on its own (ie. without a preceding Event Object parameter) is working too.'});
+    testFunction({stringToLog: 'This object on its own is working too - without a preceding Event Object parameter.'});
     testFunction('And this string on its own. This works too.');
