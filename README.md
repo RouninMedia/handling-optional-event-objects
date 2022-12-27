@@ -37,7 +37,7 @@ This example works whether the function's parameters comprise of:
 
 #### HTML
 
-    <header class="header" data-danis3h-events="{«mouseout:testFunction»: {«data»: {«stringToLog»: «Fantastic! This is actually working!»}}}">
+    <header class="header" data-danis3h-events="{«mouseout:testFunction»: {«data»: {«stringToLog»: «Fantastic - this is working!»}}}">
 
 #### JavaScript
 
@@ -48,9 +48,9 @@ This example works whether the function's parameters comprise of:
       
       eventActionData = (eventObject.constructor.name.substring(start, end) === 'Event') ? eventActionData : eventObject;
   
-      let stringToLog = (eventObject.constructor.name === 'Object') ? eventActionData.stringToLog : stringToLog;
+      let stringToLog = (eventActionData.constructor.name === 'Object') ? eventActionData.stringToLog : eventActionData;
       console.log(stringToLog);
     }
 
-    testFunction({stringToLog: 'Pleasingly, this is working too.'});
-    testFunction('And this. This works too.');
+    testFunction({stringToLog: 'Pleasingly, this object on its own (ie. without a preceding Event Object parameter) is working too.'});
+    testFunction('And this string on its own. This works too.');
