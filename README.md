@@ -5,13 +5,13 @@ _____
 
 Occasionally, functions which are usually (or sometimes) invoked via `EventListeners` may also be invoked directly.
 
-In the `EventListener`, the first parameter passed to the function will be an `Event` object.
+In the `EventListener`, the first parameter passed to the function will be an `Event object`.
 
-In the second situation, no parameter passed to the function will represent an `Event` object.
+In the second situation, no parameter passed to the function will represent an `Event object`.
 
 There doesn't seem to be a standard way of identifying whether the first parameter is or is not an `Event` object. (Perhaps it's widely regarded an anti-pattern to invoke the same function directly, which is usually invoked by an `EventListener`? But I've not heard this either.)
 
-However. There are several approaches to successfully identifying whether the first parameter ***is*** an `Event` object or not.
+However. There are several approaches to successfully identifying whether the *first* parameter ***is*** an `Event object` or not.
 
 _____
 
@@ -21,7 +21,7 @@ The first approach is to query that parameter's `constructor.name` - which, in a
 
 **E.g.**
 
-Where the first parameter of a function is `e` or `eventObject`:
+Where the first parameter of a function (usually `e` or `event`) is named `eventObject`:
 
     let start = (eventObject.constructor.name.length - 5);
     let end = eventObject.constructor.name.length;
@@ -31,7 +31,7 @@ Where the first parameter of a function is `e` or `eventObject`:
 
 This example works whether the function's parameters comprise of:
 
-  1. Two parameters: an `Event` object and then an `Object`
+  1. Two parameters: an `Event object` and then an `Object`
   2. One parameter: an `Object`
   3. One paramter: a `String` 
 
