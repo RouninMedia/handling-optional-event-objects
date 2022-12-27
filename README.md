@@ -1,5 +1,7 @@
 # Handling Optional Event Objects
-... because it's helpful to be able to re-use the same function both inside and outside of `EventListeners`. 
+... because it's helpful to be able to re-use the same function both inside and outside of `EventListeners`.
+
+_____
 
 Occasionally, functions which are usually (or sometimes) invoked via `EventListeners` may also be invoked directly.
 
