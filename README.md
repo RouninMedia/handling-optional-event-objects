@@ -31,9 +31,10 @@ Where the first parameter of a function (usually `e` or `event`) is named `event
 
 This example works whether the function's parameters comprise of:
 
-  1. Two parameters: an `Event object` and then an `Object`
-  2. One parameter: an `Object`
-  3. One paramter: a `String` 
+  1. Two parameters: an `Event object` followed by an `Object`
+  2. Two parameters: an `Event object` followed by a `String`
+  3. One parameter: an `Object`
+  4. One parameter: a `String` 
 
 #### HTML
 
